@@ -1,3 +1,4 @@
+@import url('app.css');
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -345,4 +346,111 @@ body {
     box-shadow: 0 6px 6px -3px rgba(0,0,0,0.2), 0 10px 14px 1px rgba(0,0,0,0.14), 0 4px 18px 3px rgba(0,0,0,0.12);
 }
 
-</style >
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.item-25 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.item-50 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+@media (max-width: 768px) {
+    .item-25,
+    .item-50 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+
+
+/* Carousel Stilleri */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    height: 500px; /* Sabit yükseklik */
+
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* Veya 'cover' – ihtiyaca göre değiştirilebilir */
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+}
+
+    .indicator.active {
+        background: white;
+    }
