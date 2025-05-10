@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,69 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-
 </head>
 <body>
+
+    <!-- Proje Görselleri -->
+    <div id="exclude-from-pdf-baslik" class="h6 mb-2 mt-4 font-weight-bold color-primary">Proje Görselleri</div>
+    <div class="card" id="exclude-from-pdf">
+        <div class="carousel-container">
+            <div class="carousel-slides">
+                <!-- Slide 1 -->
+                <div class="carousel-slide active">
+                    <img src="res/2.PNG" class="carousel-image">
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-slide">
+                    <img src="res/1.PNG" class="carousel-image">
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-slide">
+                    <img src="res/3.PNG" class="carousel-image">
+                </div>
+                <!-- Slide 4 -->
+                <div class="carousel-slide">
+                    <img src="res/4.PNG" class="carousel-image">
+                </div>
+                <!-- Slide 5 -->
+                <div class="carousel-slide">
+                    <img src="res/5.PNG" class="carousel-image">
+                </div>
+                <!-- Slide 6 -->
+                <div class="carousel-slide">
+                    <img src="res/6.PNG" class="carousel-image">
+                </div>
+                <!-- Slide 7 -->
+                <div class="carousel-slide">
+                    <img src="res/7.PNG" class="carousel-image">
+                </div>
+                <!-- Slide 8 -->
+                <div class="carousel-slide">
+                    <img src="res/8.PNG" class="carousel-image">
+                </div>
+                <!-- Slide 9 -->
+                <div class="carousel-slide">
+                    <img src="res/9.PNG" class="carousel-image">
+                </div>
+                <!-- Slide 10 -->
+                <div class="carousel-slide">
+                    <img src="res/10.PNG" class="carousel-image">
+                </div>
+                <!-- Slide 11 -->
+                <div class="carousel-slide">
+                    <img src="res/11.PNG" class="carousel-image">
+                </div>
+            </div>
+            <!-- Navigation arrows -->
+            <button class="carousel-prev">&lt;</button>
+            <button class="carousel-next">&gt;</button>
+            <!-- Indicators -->
+
+        </div>
+    </div>
+
+
+
     <div class="container" id="cv-content">
         <div class="paper rounded-lg">
             <div class="text-right mb-4">
@@ -26,51 +86,51 @@
             <div class="card elevation-10">
                 <div class="grid align-center">
 
-                            <!-- Sol: Profil Fotoğrafı -->
-                            <div class="item item-25">
-                                <div class="d-flex ">
-                                    <div class="avatar elevation-6">
-                                        <!-- Profil fotoğrafı -->
-                                        <img src="data:image/jpeg;base64,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" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Orta: İsim, Ünvan ve Sosyal Medya -->
-                            <div class="item item-50">
-                                <div class="text-center px-4">
-                                    <div class="h4 font-weight-bold color-primary">Murat KOÇ</div>
-                                    <div class="subtitle1 color-secondary mt-1">.NET Developer</div>
-                                    <div class="mt-3 d-flex justify-center">
-                                        <a href="https://www.linkedin.com/in/murat-ko%C3%A7-b42056176/" target="_blank" class="mx-2 text-decoration-none">
-                                            <span class="mdi mdi-linkedin mr-1 color-primary"></span>
-                                            <span class="body2 color-primary">LinkedIn</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Sağ: İletişim Bilgileri -->
-                            <div class="item item-25">
-                                <div class="d-flex align-center mb-2">
-                                    <span class="material-icons mr-2 color-primary">email</span>
-                                    <span class="body2">muratkoc503@gmail.com</span>
-                                </div>
-                                <div class="d-flex align-center mb-2">
-                                    <span class="material-icons mr-2 color-primary">phone</span>
-                                    <span class="body2">551 197 5771</span>
-                                </div>
-                                <div class="d-flex align-center mb-2">
-                                    <span class="material-icons mr-2 color-primary">location_on</span>
-                                    <span class="body2">İzmit/KOCAELİ</span>
-                                </div>
-                                <div class="d-flex align-center">
-                                    <span class="material-icons mr-2 color-primary">location_on</span>
-                                    <span class="body2">Karacabey/BURSA</span>
-                                </div>
+                    <!-- Sol: Profil Fotoğrafı -->
+                    <div class="item item-25">
+                        <div class="d-flex ">
+                            <div class="avatar elevation-6">
+                                <!-- Profil fotoğrafı -->
+                                <img src="data:image/jpeg;base64,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" />
                             </div>
                         </div>
-    
+                    </div>
+
+                    <!-- Orta: İsim, Ünvan ve Sosyal Medya -->
+                    <div class="item item-50">
+                        <div class="text-center px-4">
+                            <div class="h4 font-weight-bold color-primary">Murat KOÇ</div>
+                            <div class="subtitle1 color-secondary mt-1">.NET Developer</div>
+                            <div class="mt-3 d-flex justify-center">
+                                <a href="https://www.linkedin.com/in/murat-ko%C3%A7-b42056176/" target="_blank" class="mx-2 text-decoration-none">
+                                    <span class="mdi mdi-linkedin mr-1 color-primary"></span>
+                                    <span class="body2 color-primary">LinkedIn</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sağ: İletişim Bilgileri -->
+                    <div class="item item-25">
+                        <div class="d-flex align-center mb-2">
+                            <span class="material-icons mr-2 color-primary">email</span>
+                            <span class="body2">muratkoc503@gmail.com</span>
+                        </div>
+                        <div class="d-flex align-center mb-2">
+                            <span class="material-icons mr-2 color-primary">phone</span>
+                            <span class="body2">551 197 5771</span>
+                        </div>
+                        <div class="d-flex align-center mb-2">
+                            <span class="material-icons mr-2 color-primary">location_on</span>
+                            <span class="body2">Orhan Mah. Durmaz Sk. No:2C İzmit/KOCAELİ</span>
+                        </div>
+                        <div class="d-flex align-center">
+                            <span class="material-icons mr-2 color-primary">location_on</span>
+                            <span class="body2">Karacabey/BURSA</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="card">
@@ -100,7 +160,7 @@
                 <li class="list-item">
                     <div class="font-weight-bold">Eskişehir Osmangazi Üniversitesi</div>
                     <div class="caption">Elektrik-Elektronik Mühendisliği (İngilizce)</div>
-                    <div class="caption color-secondary">09.2013 - 07.2018</div>
+                    <div class="caption color-secondary">07.2018 - 01.2023</div>
                 </li>
             </ul>
 
@@ -215,6 +275,8 @@
                 <!-- Araçlar & Diğer -->
                 <div class="chip">Git</div>
             </div>
+
+
         </div>
     </div>
 
@@ -223,14 +285,22 @@
         async function downloadPdf() {
             const button = document.querySelector('.button');
             const originalText = button.innerHTML;
+            const element = document.getElementById('cv-content');
+            const hiddenElement = document.getElementById('exclude-from-pdf');
+            const hiddenElementBaslik = document.getElementById('exclude-from-pdf-baslik');
 
             try {
-                // Butona loading efekti ekle
                 button.innerHTML = '<span class="material-icons icon">picture_as_pdf</span> PDF Hazırlanıyor...';
                 button.classList.add('loading');
 
-                // PDF ayarları
-                const element = document.getElementById('cv-content');
+                // Hariç tutulacak elementi geçici olarak gizle
+                if (hiddenElement) {
+                    hiddenElement.style.display = 'none';
+                }
+                if (hiddenElementBaslik) {
+                    hiddenElementBaslik.style.display = 'none';
+                }
+
                 const opt = {
                     margin: 10,
                     filename: 'Murat_KOÇ_CV.pdf',
@@ -244,18 +314,67 @@
                     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
                 };
 
-                // PDF oluşturma işlemi
                 await html2pdf().set(opt).from(element).save();
 
             } catch (error) {
                 console.error('PDF oluşturma hatası:', error);
                 alert('PDF oluşturulurken bir hata oluştu: ' + error.message);
             } finally {
-                // Butonu eski haline getir
+                // Öğeyi geri göster
+                if (hiddenElement) {
+                    hiddenElement.style.display = '';
+                }
                 button.innerHTML = originalText;
                 button.classList.remove('loading');
             }
         }
+
+
+        // Carousel Fonksiyonları
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelector('.carousel-slides');
+            const slideItems = document.querySelectorAll('.carousel-slide');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            const indicators = document.querySelectorAll('.indicator');
+
+            let currentIndex = 0;
+            const totalSlides = slideItems.length;
+
+            function updateCarousel() {
+                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    if (index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+
+            // Next slide
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+            });
+
+            // Previous slide
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            });
+
+            // Indicator click
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = parseInt(indicator.getAttribute('data-slide'));
+                    updateCarousel();
+                });
+            });
+
+        });
     </script>
 </body>
 </html>
