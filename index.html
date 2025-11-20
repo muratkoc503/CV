@@ -1,386 +1,418 @@
 <!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murat KOÇ CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="app.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-</head>
-<body>
-
-    <!-- Proje Görselleri -->
-    <div id="exclude-from-pdf-baslik" class="h6 mb-2 mt-4 font-weight-bold color-primary">Proje Görselleri</div>
-    <div class="card" id="exclude-from-pdf">
-        <div class="carousel-container">
-            <div class="carousel-slides">
-                <!-- Slide 1 -->
-                <div class="carousel-slide active">
-                    <img src="res/2.PNG" class="carousel-image">
-                </div>
-                <!-- Slide 2 -->
-                <div class="carousel-slide">
-                    <img src="res/1.PNG" class="carousel-image">
-                </div>
-                <!-- Slide 3 -->
-                <div class="carousel-slide">
-                    <img src="res/3.PNG" class="carousel-image">
-                </div>
-                <!-- Slide 4 -->
-                <div class="carousel-slide">
-                    <img src="res/4.PNG" class="carousel-image">
-                </div>
-                <!-- Slide 5 -->
-                <div class="carousel-slide">
-                    <img src="res/5.PNG" class="carousel-image">
-                </div>
-                <!-- Slide 6 -->
-                <div class="carousel-slide">
-                    <img src="res/6.PNG" class="carousel-image">
-                </div>
-                <!-- Slide 7 -->
-                <div class="carousel-slide">
-                    <img src="res/7.PNG" class="carousel-image">
-                </div>
-                <!-- Slide 8 -->
-                <div class="carousel-slide">
-                    <img src="res/8.PNG" class="carousel-image">
-                </div>
-                <!-- Slide 9 -->
-                <div class="carousel-slide">
-                    <img src="res/9.PNG" class="carousel-image">
-                </div>
-                <!-- Slide 10 -->
-                <div class="carousel-slide">
-                    <img src="res/10.PNG" class="carousel-image">
-                </div>
-                <!-- Slide 11 -->
-                <div class="carousel-slide">
-                    <img src="res/11.PNG" class="carousel-image">
-                </div>
-            </div>
-            <!-- Navigation arrows -->
-            <button class="carousel-prev">&lt;</button>
-            <button class="carousel-next">&gt;</button>
-            <!-- Indicators -->
-
-        </div>
-    </div>
-
-
-
-    <div class="container" id="cv-content">
-        <div class="paper rounded-lg">
-            <div class="text-right mb-4">
-                <button class="button" onclick="downloadPdf()">
-                    <span class="material-icons icon">picture_as_pdf</span>
-                    PDF Olarak İndir
-                </button>
-            </div>
-
-            <div class="card elevation-10">
-                <div class="grid align-center">
-
-                    <!-- Sol: Profil Fotoğrafı -->
-                    <div class="item item-25">
-                        <div class="d-flex ">
-                            <div class="avatar elevation-6">
-                                <!-- Profil fotoğrafı -->
-                                <img src="data:image/jpeg;base64,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" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Orta: İsim, Ünvan ve Sosyal Medya -->
-                    <div class="item item-50">
-                        <div class="text-center px-4">
-                            <div class="h4 font-weight-bold color-primary">Murat KOÇ</div>
-                            <div class="subtitle1 color-secondary mt-1">.NET Developer</div>
-                            <div class="mt-3 d-flex justify-center">
-                                <a href="https://www.linkedin.com/in/murat-ko%C3%A7-b42056176/" target="_blank" class="mx-2 text-decoration-none">
-                                    <span class="mdi mdi-linkedin mr-1 color-primary"></span>
-                                    <span class="body2 color-primary">LinkedIn</span>
-                                </a>
-                            </div>     
-                            
-                            <div class="mt-3 d-flex justify-center">
-                                <a href="https://muratkoc503.github.io/CV/" target="_blank">
-                                    <span class="body2 color-primary">CV (https://muratkoc503.github.io/CV/)</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Sağ: İletişim Bilgileri -->
-                    <div class="item item-25">
-                        <div class="d-flex align-center mb-2">
-                            <span class="material-icons mr-2 color-primary">email</span>
-                            <span class="body2">muratkoc503@gmail.com</span>
-                        </div>
-                        <div class="d-flex align-center mb-2">
-                            <span class="material-icons mr-2 color-primary">phone</span>
-                            <span class="body2">551 197 5771</span>
-                        </div>
-                        <div class="d-flex align-center mb-2">
-                            <span class="material-icons mr-2 color-primary">location_on</span>
-                            <span class="body2">Orhan Mah. Durmaz Sk. No:2C İzmit/KOCAELİ</span>
-                        </div>
-                        <div class="d-flex align-center">
-                            <span class="material-icons mr-2 color-primary">location_on</span>
-                            <span class="body2">Karacabey/BURSA</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="card">
-                <div class="grid">
-                    <div class="item" style="flex: 0 0 50%; max-width: 50%;">
-                        <div class="body2">🎂 24 Temmuz 1995 - Bursa</div>
-                        <div class="body2">🚗 Ehliyet - B</div>
-                    </div>
-                    <div class="item" style="flex: 0 0 50%; max-width: 50%;">
-                        <div class="body2">💻 Full Stack Developer</div>
-                        <div class="body2">🧩 .Net Framework + Blazor + Entity Framework + CQRS Pattern (Mediatr Library)</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="divider my-4"></div>
-
-            <!-- Profile Summary -->
-            <div class="h6 mb-2 font-weight-bold color-primary">Profil</div>
-            <div class="body2 mb-4">
-                Aktif olarak 4 sene yazılım alanında, 2 senedir <strong>.NET Developer</strong> olarak çalışıyorum. Backend tarafında <strong>C#</strong>, <strong>.Net Framework</strong>, <strong>Entity Framework</strong> ve <strong>CQRS Pattern (Mediatr Library)</strong> ile frontend tarafında ise <strong>ASP.NET Blazor</strong> teknolojilerini kullanarak yazılım geliştiriyorum. Yaklaşık 1 - 1,5 yıl içerisinde 100.000'den fazla satır kod yazarak kapsamlı bir CRM sistemi geliştirdim. Ocak 2025 itibarıyla, halihazırda çalıştığım firmanın 8 yıldır kullandığı yazılımın yerini bu yeni sistem alarak aktif olarak kullanılmaya başlandı. Üniversite ve sonrası dönemde Gömülü yazılım ve robotik alanında kendimi geliştirmeye çalıştım. 2 sene STM32, Texas Instr., ESP32 işlemcileri ve ROS & ROS2 framework kullanarak kendimi geliştirmeye çalıştım.
-            </div>
-
-            <!-- Education -->
-            <div class="h6 mb-2 font-weight-bold color-primary">Eğitim</div>
-            <ul class="list">
-                <li class="list-item">
-                    <div class="font-weight-bold">Eskişehir Osmangazi Üniversitesi</div>
-                    <div class="caption">Elektrik-Elektronik Mühendisliği (İngilizce)</div>
-                    <div class="caption color-secondary">09.2013 - 07.2018</div>
-                </li>
-            </ul>
-
-            <!-- Languages -->
-            <div class="h6 mb-2 mt-4 font-weight-bold color-primary">Yabancı Diller</div>
-            <div class="grid">
-                <div class="item">
-                    <div class="subtitle2 font-weight-bold mb-1">İngilizce</div>
-                    <div class="d-flex flex-wrap align-items-center gap-4">
-                        <div class="d-flex align-items-center">
-                            <div class="body2 mr-1">Teknik:</div>
-                            <div class="rating">
-                                <span class="material-icons" style="color: #ffb400; font-size: 1rem;">star</span>
-                                <span class="material-icons" style="color: #ffb400; font-size: 1rem;">star</span>
-                                <span class="material-icons" style="color: #ffb400; font-size: 1rem;">star</span>
-                                <span class="material-icons" style="color: #ffb400; font-size: 1rem;">star</span>
-                                <span class="material-icons" style="color: #e0e0e0; font-size: 1rem;">star</span>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="body2 mr-1">Teknik Dışı:</div>
-                            <div class="rating">
-                                <span class="material-icons" style="color: #ffb400; font-size: 1rem;">star</span>
-                                <span class="material-icons" style="color: #ffb400; font-size: 1rem;">star</span>
-                                <span class="material-icons" style="color: #ffb400; font-size: 1rem;">star</span>
-                                <span class="material-icons" style="color: #e0e0e0; font-size: 1rem;">star</span>
-                                <span class="material-icons" style="color: #e0e0e0; font-size: 1rem;">star</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experience -->
-            <div class="h6 mb-2 mt-4 font-weight-bold color-primary">Deneyim</div>
-            <ul class="list">
-                <!-- Ates Mekatronik -->
-                <li class="list-item">
-                    <div class="font-weight-bold">Ates Kurubuz | Yazılım Mühendisi</div>
-                    <div class="caption color-secondary">01.2023 - Devam ediyor</div>
-
-                    <div class="mt-2 font-weight-bold">1. Yıl</div>
-                    <ul class="list-item-multiline">
-                        <li>PHP, JavaScript ve HTML kullanılarak geliştirilen yazılım Almanya ve Türkiye'deki fabrikalarda devreye alındı</li>
-                        <li>Üretim ekranı üzerinden üretim miktarı, saat gibi veriler takip ediliyor</li>
-                        <li>Yüzde 90'ı tarafımdan yazılan bu yazılım aktif olarak kullanılmaktadır</li>
-                        <li>Birçok modül ile entegre şekilde çalışmaktadır</li>
-                    </ul>
-
-                    <div class="mt-2 font-weight-bold">2. Yıl</div>
-                    <ul class="list-item-multiline">
-                        <li>Backend'de <strong>C#</strong>, frontend'de <strong>ASP.NET Blazor</strong> teknolojileri kullanılmakta</li>
-                        <li>.razor ve .cs dosyaları ile 1 yılda 100.000+ satır kod yazıldı</li>
-                        <li>8 yıldır kullanılan CRM yerine kullanılan yeni sistem geliştirildi</li>
-                        <li>Admin paneli ve superadmin yetkileri ile kullanıcı, rol bazlı yetkilendirme modülü içeriyor</li>
-                        <li>Müşteri, kontak, teklif, satış, ihracat, aktivite, stok ve ürün modülleri geliştirildi</li>
-                        <li>Her rol için silme, görüntüleme, listeleme gibi detaylı yetkilendirme sistemi mevcut</li>
-                        <li>Kayıt sahibi, grup ve tüm kayıtları görüntüleme gibi gelişmiş filtreleme ve erişim kontrolü uygulanmakta</li>
-                        <li><strong>Clean Code</strong> prensipleri ile geliştirme yapılmakta</li>
-                        <li><strong>CQRS Pattern (Mediatr)</strong> aktif olarak kullanılmakta</li>
-                        <li><strong>SOLID prensipleri</strong> ve <strong>Dependency Injection</strong> dikkate alınarak geliştirme yapılmakta</li>
-                        <li>Şuan fabrikaya özel üretim modülü üzerinde çalışıyorum. Tank değerleri PLC den okunup API olarak serverda paylaşılıyor. (PLC'yi ekip arkadaşım kullanıyor..)</li>
-                        <li>Barkod okuyarak başlayan süreçte, üretim saatlerinin ve konteyner takibi yapılan ve sonunda cari ve konteyner numarasını otomatik yazdıran sisteme geçildi</li>
-                    </ul>
-                </li>
-
-                <!-- Koç Robotik -->
-                <li class="list-item">
-                    <div class="font-weight-bold">Koç Robotik | Kurucu Ortak</div>
-                    <div class="caption color-secondary">06.2022 - 01.2023</div>
-                    <ul class="list-item-multiline">
-                        <li>
-                            KOSGEB Ar-Ge ve İnovasyon Desteği alarak Ulutek
-                            Teknopark'ta iki kişiyle bir şirket kurduk.
-                            Otonom Tarım Robotu Projesi için ROS, yapay zeka
-                            ve gömülü sistemlerle ilgili simülasyon çalışmaları
-                            yaptık. Ben esas olarak YOLO kullanarak görüntü
-                            işleme üzerinde çalıştım. Finansal kısıtlamalar
-                            nedeniyle projeyi sonlandırmak zorunda kaldık.
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="list-item">
-                    <div class="font-weight-bold">Deniz Kuvvetleri Komutanlığı | Mühendis Asteğmen (Yedek Subay)</div>
-                    <div class="caption color-secondary">08.2019 - 07.2020</div>
-                    <ul class="list-item-multiline">
-                        <li>Askerlik hizmetimi Yedek Subay olarak tamamladım</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <!-- Skills -->
-            <div class="h6 mb-2 mt-4 font-weight-bold color-primary">Teknik Yetkinlikler</div>
-            <div class="d-flex flex-wrap gap-2">
-                <!-- .NET & C# -->
-                <div class="chip">C#</div>
-                <div class="chip">.NET Framework</div>
-                <div class="chip">Entity Framework</div>
-                <div class="chip">Blazor</div>
-
-                <!-- Architectural Patterns -->
-                <div class="chip">CQRS (MediatR)</div>
-
-                <!-- Görüntü İşleme & Yapay Zeka -->
-                <div class="chip">YOLO (Computer Vision)</div>
-                <div class="chip">ROS / ROS2</div>
-
-                <!-- Gömülü Sistemler & Donanım -->
-                <div class="chip">STM32</div>
-
-                <!-- Araçlar & Diğer -->
-                <div class="chip">Git</div>
-            </div>
-
-
-        </div>
-    </div>
-
-    <script>
-
-        async function downloadPdf() {
-            const button = document.querySelector('.button');
-            const originalText = button.innerHTML;
-            const element = document.getElementById('cv-content');
-            const hiddenElement = document.getElementById('exclude-from-pdf');
-            const hiddenElementBaslik = document.getElementById('exclude-from-pdf-baslik');
-
-            try {
-                button.innerHTML = '<span class="material-icons icon">picture_as_pdf</span> PDF Hazırlanıyor...';
-                button.classList.add('loading');
-
-                // Hariç tutulacak elementi geçici olarak gizle
-                if (hiddenElement) {
-                    hiddenElement.style.display = 'none';
-                }
-                if (hiddenElementBaslik) {
-                    hiddenElementBaslik.style.display = 'none';
-                }
-
-                const opt = {
-                    margin: 10,
-                    filename: 'Murat_KOÇ_CV.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: {
-                        scale: 2,
-                        logging: true,
-                        useCORS: true,
-                        allowTaint: true
-                    },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-                };
-
-                await html2pdf().set(opt).from(element).save();
-
-            } catch (error) {
-                console.error('PDF oluşturma hatası:', error);
-                alert('PDF oluşturulurken bir hata oluştu: ' + error.message);
-            } finally {
-                // Öğeyi geri göster
-                if (hiddenElement) {
-                    hiddenElement.style.display = '';
-                }
-                button.innerHTML = originalText;
-                button.classList.remove('loading');
-            }
-        }
-
-
-        // Carousel Fonksiyonları
-        document.addEventListener('DOMContentLoaded', function () {
-            const slides = document.querySelector('.carousel-slides');
-            const slideItems = document.querySelectorAll('.carousel-slide');
-            const prevBtn = document.querySelector('.carousel-prev');
-            const nextBtn = document.querySelector('.carousel-next');
-            const indicators = document.querySelectorAll('.indicator');
-
-            let currentIndex = 0;
-            const totalSlides = slideItems.length;
-
-            function updateCarousel() {
-                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-                // Update indicators
-                indicators.forEach((indicator, index) => {
-                    if (index === currentIndex) {
-                        indicator.classList.add('active');
-                    } else {
-                        indicator.classList.remove('active');
-                    }
-                });
-            }
-
-            // Next slide
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                updateCarousel();
-            });
-
-            // Previous slide
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                updateCarousel();
-            });
-
-            // Indicator click
-            indicators.forEach(indicator => {
-                indicator.addEventListener('click', () => {
-                    currentIndex = parseInt(indicator.getAttribute('data-slide'));
-                    updateCarousel();
-                });
-            });
-
-        });
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Murat Koc - Frontend Developer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2b8cee",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "charcoal": "#36454F",
+              "charcoal-dark": "#E0E6ED",
+              "muted-blue": "#4A90E2",
+              "light-grey": "#E0E0E0",
+              "light-grey-dark": "#39444f",
+              "text-light": "#374151",
+              "text-dark": "#cbd5e1"
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
     </script>
-</body>
-</html>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<main class="flex-1">
+<div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+<div class="lg:grid lg:grid-cols-12 lg:gap-8">
+<!-- Left Sidebar -->
+<aside class="lg:col-span-4 xl:col-span-3">
+<div class="sticky top-8 space-y-6">
+<!-- Profile Header -->
+<div class="flex flex-col items-center text-center p-6 bg-white dark:bg-background-dark rounded-xl border border-light-grey dark:border-light-grey-dark shadow-sm">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 mb-4" data-alt="Professional headshot of Murat Koc" style='background-image: url("data:image/jpeg;base64,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");'></div>
+<div class="flex flex-col justify-center">
+<h1 class="text-charcoal dark:text-charcoal-dark text-2xl font-bold leading-tight">Murat KOÇ</h1>
+<p class="text-text-light dark:text-text-dark text-base font-normal leading-normal">.NET Developer</p>
+</div>
+<a class="mt-6 inline-flex w-full min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-muted-blue text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors hover:bg-blue-600" href="https://muratkoc503.github.io/CV/" target="_blank" rel="noopener noreferrer">
+  <span class="truncate">Download CV</span>
+</a>
+</div>
+<!-- Contact Info / SideNavBar -->
+<div class="flex flex-col p-4 bg-white dark:bg-background-dark rounded-xl border border-light-grey dark:border-light-grey-dark shadow-sm">
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors" href="mailto:muratkoc503@gmail.com">
+<span class="material-symbols-outlined text-muted-blue">mail</span>
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">muratkoc503@gmail.com</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors" href="tel:+905511975771">
+<span class="material-symbols-outlined text-muted-blue">phone</span>
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">551 197 5771</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors" href="#">
+  <span class="material-symbols-outlined text-muted-blue">location_on</span>
+  <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Orhan Mah. Durmaz Sk. No:2C İzmit/KOCAELİ</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors" href="#">
+  <span class="material-symbols-outlined text-muted-blue">location_on</span>
+  <p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">Karacabey/BURSA</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 transition-colors" href="https://www.linkedin.com/in/murat-ko%C3%A7-b42056176/" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" class="w-6 h-6 text-muted-blue" fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal">LinkedIn</p>
+</a>
+
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:col-span-8 xl:col-span-9 mt-8 lg:mt-0 space-y-8">
+
+
+<div class="p-6 bg-white dark:bg-background-dark rounded-xl border border-light-grey dark:border-light-grey-dark shadow-sm">
+    <h2 class="text-charcoal dark:text-charcoal-dark text-2xl font-bold leading-tight tracking-tight">Projects</h2>
+    <hr class="my-4 border-t border-light-grey dark:border-light-grey-dark" />
+
+    <div class="relative w-full">
+        <div class="overflow-hidden rounded-lg">
+            <div id="carousel-inner" class="flex transition-transform duration-500 ease-in-out">
+
+                <div class="min-w-full">
+                    <div class="bg-center bg-no-repeat bg-contain aspect-[16/9] rounded-lg"
+                        style='background-image: url("res/1.PNG");'>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-bold text-lg text-charcoal dark:text-charcoal-dark">Project 1</h3>
+                        <p class="text-text-light dark:text-text-dark mt-1 text-base">Screenshot 1 from local folder.</p>
+                    </div>
+                </div>
+
+                <div class="min-w-full">
+                    <div class="bg-center bg-no-repeat bg-contain aspect-[16/9] rounded-lg"
+                        style='background-image: url("res/2.PNG");'>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-bold text-lg text-charcoal dark:text-charcoal-dark">Project 2</h3>
+                        <p class="text-text-light dark:text-text-dark mt-1 text-base">Screenshot 2 from local folder.</p>
+                    </div>
+                </div>
+
+                <div class="min-w-full">
+                    <div class="bg-center bg-no-repeat bg-contain aspect-[16/9] rounded-lg"
+                        style='background-image: url("res/3.PNG");'>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-bold text-lg text-charcoal dark:text-charcoal-dark">Project 3</h3>
+                        <p class="text-text-light dark:text-text-dark mt-1 text-base">Screenshot 3 from local folder.</p>
+                    </div>
+                </div>
+
+                <div class="min-w-full">
+                    <div class="bg-center bg-no-repeat bg-contain aspect-[16/9] rounded-lg"
+                        style='background-image: url("res/4.PNG");'>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-bold text-lg text-charcoal dark:text-charcoal-dark">Project 4</h3>
+                        <p class="text-text-light dark:text-text-dark mt-1 text-base">Screenshot 4 from local folder.</p>
+                    </div>
+                </div>
+
+                <div class="min-w-full">
+                    <div class="bg-center bg-no-repeat bg-contain aspect-[16/9] rounded-lg"
+                        style='background-image: url("res/5.PNG");'>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-bold text-lg text-charcoal dark:text-charcoal-dark">Project 5</h3>
+                        <p class="text-text-light dark:text-text-dark mt-1 text-base">Screenshot 5 from local folder.</p>
+                    </div>
+                </div>
+
+                <div class="min-w-full">
+                    <div class="bg-center bg-no-repeat bg-contain aspect-[16/9] rounded-lg"
+                        style='background-image: url("res/6.PNG");'>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-bold text-lg text-charcoal dark:text-charcoal-dark">Project 6</h3>
+                        <p class="text-text-light dark:text-text-dark mt-1 text-base">Screenshot 6 from local folder.</p>
+                    </div>
+                </div>
+
+                <div class="min-w-full">
+                    <div class="bg-center bg-no-repeat bg-contain aspect-[16/9] rounded-lg"
+                        style='background-image: url("res/7.PNG");'>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-bold text-lg text-charcoal dark:text-charcoal-dark">Project 7</h3>
+                        <p class="text-text-light dark:text-text-dark mt-1 text-base">Screenshot 7 from local folder.</p>
+                    </div>
+                </div>
+
+                <div class="min-w-full">
+                    <div class="bg-center bg-no-repeat bg-contain aspect-[16/9] rounded-lg"
+                        style='background-image: url("res/8.PNG");'>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-bold text-lg text-charcoal dark:text-charcoal-dark">Project 8</h3>
+                        <p class="text-text-light dark:text-text-dark mt-1 text-base">Screenshot 8 from local folder.</p>
+                    </div>
+                </div>
+
+                <div class="min-w-full">
+                    <div class="bg-center bg-no-repeat bg-contain aspect-[16/9] rounded-lg"
+                        style='background-image: url("res/9.PNG");'>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-bold text-lg text-charcoal dark:text-charcoal-dark">Project 9</h3>
+                        <p class="text-text-light dark:text-text-dark mt-1 text-base">Screenshot 9 from local folder.</p>
+                    </div>
+                </div>
+
+                <div class="min-w-full">
+                    <div class="bg-center bg-no-repeat bg-contain aspect-[16/9] rounded-lg"
+                        style='background-image: url("res/10.PNG");'>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-bold text-lg text-charcoal dark:text-charcoal-dark">Project 10</h3>
+                        <p class="text-text-light dark:text-text-dark mt-1 text-base">Screenshot 10 from local folder.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="absolute inset-y-0 left-0 flex items-center">
+            <button id="prevBtn" class="bg-white/50 dark:bg-black/50 hover:bg-white/80 dark:hover:bg-black/80 p-2 rounded-full -ml-4">
+                <span class="material-symbols-outlined text-charcoal dark:text-charcoal-dark">chevron_left</span>
+            </button>
+        </div>
+
+        <div class="absolute inset-y-0 right-0 flex items-center">
+            <button id="nextBtn" class="bg-white/50 dark:bg-black/50 hover:bg-white/80 dark:hover:bg-black/80 p-2 rounded-full -mr-4">
+                <span class="material-symbols-outlined text-charcoal dark:text-charcoal-dark">chevron_right</span>
+            </button>
+        </div>
+
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+            <button class="carousel-dot h-2 w-2 rounded-full bg-muted-blue"></button>
+            <button class="carousel-dot h-2 w-2 rounded-full bg-light-grey"></button>
+            <button class="carousel-dot h-2 w-2 rounded-full bg-light-grey"></button>
+            <button class="carousel-dot h-2 w-2 rounded-full bg-light-grey"></button>
+            <button class="carousel-dot h-2 w-2 rounded-full bg-light-grey"></button>
+            <button class="carousel-dot h-2 w-2 rounded-full bg-light-grey"></button>
+            <button class="carousel-dot h-2 w-2 rounded-full bg-light-grey"></button>
+            <button class="carousel-dot h-2 w-2 rounded-full bg-light-grey"></button>
+            <button class="carousel-dot h-2 w-2 rounded-full bg-light-grey"></button>
+            <button class="carousel-dot h-2 w-2 rounded-full bg-light-grey"></button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+const carousel = document.getElementById("carousel-inner");
+const slides = document.querySelectorAll("#carousel-inner > div");
+const dots = document.querySelectorAll(".carousel-dot");
+
+let index = 0;
+
+function updateCarousel() {
+    // BURASI DÜZELTİLDİ: Backtick (`) karakterleri ve doğru string formatı kullanıldı.
+    carousel.style.transform = `translateX(-${index * 100}%)`; 
+    
+    dots.forEach((d, i) => {
+        // Renk sınıf adlarını Tailwind CSS'e göre düzenlemeniz gerekebilir
+        d.classList.remove("bg-muted-blue");
+        d.classList.add("bg-light-grey");
+        if (i === index) {
+            d.classList.remove("bg-light-grey");
+            d.classList.add("bg-muted-blue");
+        }
+    });
+}
+
+// Başlangıçta ilk slaytı göstermek için çağırın
+updateCarousel(); 
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+});
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+    // Bu, index'i negatif yapmadan geri kaydırmayı sağlar.
+    index = (index - 1 + slides.length) % slides.length; 
+    updateCarousel();
+});
+
+dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+        index = i;
+        updateCarousel();
+    });
+});
+</script>
+
+
+<!-- Summary Section -->
+<div class="p-6 bg-white dark:bg-background-dark rounded-xl border border-light-grey dark:border-light-grey-dark shadow-sm">
+<h2 class="text-charcoal dark:text-charcoal-dark text-2xl font-bold leading-tight tracking-tight">Profil</h2>
+<hr class="my-4 border-t border-light-grey dark:border-light-grey-dark"/>
+<p class="text-text-light dark:text-text-dark text-base font-normal leading-relaxed">
+Aktif olarak 4 sene yazılım alanında, 2 senedir .NET Developer olarak çalışıyorum. Backend tarafında C#, .Net Framework, Entity Framework ve CQRS Pattern (Mediatr Library) ile frontend tarafında ise ASP.NET Blazor teknolojilerini kullanarak yazılım geliştiriyorum. Yaklaşık 1 - 1,5 yıl içerisinde 100.000'den fazla satır kod yazarak kapsamlı bir CRM sistemi geliştirdim. Ocak 2025 itibarıyla, halihazırda çalıştığım firmanın 8 yıldır kullandığı yazılımın yerini bu yeni sistem alarak aktif olarak kullanılmaya başlandı. Üniversite ve sonrası dönemde Gömülü yazılım ve robotik alanında kendimi geliştirmeye çalıştım. 2 sene STM32, Texas Instr., ESP32 işlemcileri ve ROS &amp; ROS2 framework kullanarak kendimi geliştirmeye çalıştım.
+                </p>
+</div>
+<!-- Experience Section -->
+<div class="p-6 bg-white dark:bg-background-dark rounded-xl border border-light-grey dark:border-light-grey-dark shadow-sm">
+  <h2 class="text-charcoal dark:text-charcoal-dark text-2xl font-bold leading-tight tracking-tight">Deneyimler</h2>
+  <hr class="my-4 border-t border-light-grey dark:border-light-grey-dark"/>
+
+  <div class="relative pl-6 space-y-8 before:content-[''] before:absolute before:left-2 before:top-2 before:h-[calc(100%-1rem)] before:w-0.5 before:bg-light-grey dark:before:bg-light-grey-dark">
+
+    <!-- Job 1 -->
+    <div class="relative">
+      <div class="absolute -left-[30px] top-1.5 h-4 w-4 rounded-full bg-muted-blue ring-8 ring-white dark:ring-background-dark"></div>
+      <h3 class="text-lg font-bold text-charcoal dark:text-charcoal-dark">Ates Kurubuz | Yazılım Mühendisi</h3>
+      <p class="text-sm font-medium text-text-light dark:text-text-dark">01.2023 - Devam ediyor</p>
+
+      <div class="mt-2 text-text-light dark:text-text-dark text-base leading-relaxed space-y-2">
+        <p><strong>1. Yıl</strong></p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>PHP, JavaScript ve HTML kullanılarak geliştirilen yazılım Almanya ve Türkiye'deki fabrikalarda devreye alındı.</li>
+          <li>Üretim ekranı üzerinden üretim miktarı ve saat takibi yapılmaktadır.</li>
+          <li>Yazılımın %90'ı tarafımdan geliştirilmiş olup aktif olarak kullanılmaktadır.</li>
+          <li>Birçok modül ile entegre şekilde çalışmaktadır.</li>
+        </ul>
+
+        <p><strong>2. Yıl</strong></p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>Backend: C#, Frontend: ASP.NET Blazor kullanılmakta.</li>
+          <li>.razor ve .cs dosyaları ile 1 yılda 100.000+ satır kod yazıldı.</li>
+          <li>8 yıldır kullanılan CRM yerine tamamen yeni bir sistem geliştirildi.</li>
+          <li>Admin ve superadmin panelleriyle kullanıcı/rol bazlı yetkilendirme sistemi oluşturuldu.</li>
+          <li>Müşteri, kontak, teklif, satış, ihracat, aktivite, stok ve ürün modülleri geliştirildi.</li>
+          <li>Rol bazlı silme, görüntüleme, listeleme gibi detaylı yetkilendirmeler bulunmakta.</li>
+          <li>Kayıt sahibi, grup ve tüm kayıtları görüntüleme gibi gelişmiş filtreleme ve erişim kontrolü sağlanmakta.</li>
+          <li>Clean Code, SOLID ve Dependency Injection prensiplerine uygun geliştirme yapılmakta.</li>
+          <li>CQRS Pattern (Mediatr) aktif olarak kullanılmaktadır.</li>
+          <li>Fabrikaya özel üretim modülü geliştiriliyor; PLC'den okunan tank değerleri API olarak sunuluyor.</li>
+          <li>Barkod ile başlayan süreçte üretim saatleri ve konteyner takibi yapılmakta; cari ve konteyner numarası otomatik yazdırılmaktadır.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Job 2 -->
+    <div class="relative">
+      <div class="absolute -left-[30px] top-1.5 h-4 w-4 rounded-full bg-muted-blue ring-8 ring-white dark:ring-background-dark"></div>
+      <h3 class="text-lg font-bold text-charcoal dark:text-charcoal-dark">Koç Robotik | Kurucu Ortak</h3>
+      <p class="text-sm font-medium text-text-light dark:text-text-dark">06.2022 - 01.2023</p>
+      <p class="mt-2 text-text-light dark:text-text-dark text-base leading-relaxed">KOSGEB Ar-Ge ve İnovasyon Desteği ile Ulutek Teknopark'ta iki kişiyle şirket kurduk. Otonom Tarım Robotu Projesi için ROS, yapay zeka ve gömülü sistemler üzerinde çalıştık. YOLO ile görüntü işleme geliştirdim. Finansal nedenlerle proje sonlandırıldı.</p>
+    </div>
+
+    <!-- Job 3 -->
+    <div class="relative">
+      <div class="absolute -left-[30px] top-1.5 h-4 w-4 rounded-full bg-muted-blue ring-8 ring-white dark:ring-background-dark"></div>
+      <h3 class="text-lg font-bold text-charcoal dark:text-charcoal-dark">Deniz Kuvvetleri Komutanlığı | Mühendis Asteğmen (Yedek Subay)</h3>
+      <p class="text-sm font-medium text-text-light dark:text-text-dark">08.2019 - 07.2020</p>
+      <p class="mt-2 text-text-light dark:text-text-dark text-base leading-relaxed">Askerlik hizmetimi Yedek Subay olarak tamamladım.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Education Section -->
+<div class="p-6 bg-white dark:bg-background-dark rounded-xl border border-light-grey dark:border-light-grey-dark shadow-sm">
+  <h2 class="text-charcoal dark:text-charcoal-dark text-2xl font-bold leading-tight tracking-tight">Eğitim</h2>
+  <hr class="my-4 border-t border-light-grey dark:border-light-grey-dark"/>
+
+  <div class="relative pl-6 space-y-8 before:content-[''] before:absolute before:left-2 before:top-2 before:h-[calc(100%-1rem)] before:w-0.5 before:bg-light-grey dark:before:bg-light-grey-dark">
+
+    <!-- Degree -->
+    <div class="relative">
+      <div class="absolute -left-[30px] top-1.5 h-4 w-4 rounded-full bg-muted-blue ring-8 ring-white dark:ring-background-dark"></div>
+      <h3 class="text-lg font-bold text-charcoal dark:text-charcoal-dark">Elektrik-Elektronik Mühendisliği (İngilizce)</h3>
+      <p class="text-sm font-medium text-text-light dark:text-text-dark">Eskişehir Osmangazi Üniversitesi | 09.2013 - 07.2018</p>
+    </div>
+
+  </div>
+</div>
+<!-- Skills Section -->
+<div class="p-6 bg-white dark:bg-background-dark rounded-xl border border-light-grey dark:border-light-grey-dark shadow-sm">
+  <h2 class="text-charcoal dark:text-charcoal-dark text-2xl font-bold leading-tight tracking-tight">Yetenekler</h2>
+  <hr class="my-4 border-t border-light-grey dark:border-light-grey-dark"/>
+
+  <div class="space-y-4">
+
+    <!-- Languages / Technologies -->
+    <div>
+      <h3 class="font-semibold text-charcoal dark:text-charcoal-dark mb-2">Dil & Teknoloji</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary/20 text-charcoal dark:text-charcoal-dark text-sm font-medium px-3 py-1 rounded-full">C#</span>
+        <span class="bg-primary/20 text-charcoal dark:text-charcoal-dark text-sm font-medium px-3 py-1 rounded-full">.NET Framework</span>
+        <span class="bg-primary/20 text-charcoal dark:text-charcoal-dark text-sm font-medium px-3 py-1 rounded-full">Entity Framework</span>
+        <span class="bg-primary/20 text-charcoal dark:text-charcoal-dark text-sm font-medium px-3 py-1 rounded-full">Blazor</span>
+      </div>
+    </div>
+
+    <!-- Frameworks & Libraries -->
+    <div>
+      <h3 class="font-semibold text-charcoal dark:text-charcoal-dark mb-2">Frameworks & Architecture</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary/20 text-charcoal dark:text-charcoal-dark text-sm font-medium px-3 py-1 rounded-full">CQRS (MediatR)</span>
+      </div>
+    </div>
+
+    <!-- AI / Embedded -->
+    <div>
+      <h3 class="font-semibold text-charcoal dark:text-charcoal-dark mb-2">AI, Robotik & Gömülü Sistemler</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary/20 text-charcoal dark:text-charcoal-dark text-sm font-medium px-3 py-1 rounded-full">YOLO (Computer Vision)</span>
+        <span class="bg-primary/20 text-charcoal dark:text-charcoal-dark text-sm font-medium px-3 py-1 rounded-full">ROS / ROS2</span>
+        <span class="bg-primary/20 text-charcoal dark:text-charcoal-dark text-sm font-medium px-3 py-1 rounded-full">STM32</span>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div>
+      <h3 class="font-semibold text-charcoal dark:text-charcoal-dark mb-2">Araçlar & Platformlar</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary/20 text-charcoal dark:text-charcoal-dark text-sm font-medium px-3 py-1 rounded-full">Git</span>
+      </div>
+    </div>
+
+  </div>
+</div></div>
+</main>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>
